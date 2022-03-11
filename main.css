@@ -93,12 +93,7 @@ p   { font-size: var(--step--1) }
     margin: 1rem auto;
 }
 
-@media screen and (max-width: 600px) {
-    .password-generator {
-        padding: 0.5rem;
-        width: calc(100% - 1.5rem);
-    }
-}
+
 
 .title {
     font-size: var(--step-2);
@@ -194,4 +189,21 @@ p   { font-size: var(--step--1) }
     }
 
 
+}
+
+
+@media screen and (max-width: 600px) {
+    .password-generator {
+        padding: 0.5rem;
+        width: calc(100% - 1.5rem);
+        background-color: transparent;
+    }
+
+    input {
+        background-color: var(--clr-dark-100);
+    }
+
+    .password {
+        background-color: var(--clr-dark-100);
+    }
 }
