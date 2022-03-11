@@ -126,7 +126,7 @@ p   { font-size: var(--step--1) }
     text-transform: capitalize;
     text-align: center;
     /* margin: 0 auto; */
-    /* width: 75%; */
+    width: 80%;
 }
 
 
@@ -175,6 +175,12 @@ p   { font-size: var(--step--1) }
     display: none;
 }
 
-.bi:hover::after {
-    display: block;
+
+@media (hover: hover) {
+
+    .bi:hover::after {
+        display: block;
+    }
+
+
 }
