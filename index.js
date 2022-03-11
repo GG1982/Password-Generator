@@ -8,10 +8,10 @@ let passLength = document.getElementById("pass-length")
 
 let passNotify = document.getElementById("pass-notify")
 
-// function init() {
-//     // Allows us to call functions only after passwordGenerator() has been called
-//     init.called = true
-// }
+function init() {
+    // Allows us to call functions only after passwordGenerator() has been called
+    init.called = true
+}
 
 
 let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789,./;#~@:?>-<'.split('')
@@ -28,8 +28,8 @@ passLength.addEventListener('keyup', function (e) {
 })
 
 function passwordGenerator() {
-    // // Call init() so text can only be copied once password generated
-    // init()
+    // Call init() so text can only be copied once password generated
+    init()
 
     let passwordChar1 = []
     let passwordChar2 = []
@@ -90,6 +90,8 @@ let root = document.querySelector(":root");
 
 
 function copyText() {
+
+    if (init.called) {
     btnPassword1.addEventListener('click', () => {
         // Copy passowrd to clipboard
         navigator.clipboard.writeText(passEl1.textContent)
@@ -152,6 +154,6 @@ function copyText() {
             icon4.classList.remove("bi-check2-square")
             root.style.setProperty("--copy-text", '"Copy"')
         }, 500)
-    })
-
+    }) 
+    } 
 }
