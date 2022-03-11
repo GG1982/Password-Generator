@@ -151,7 +151,7 @@ p   { font-size: var(--step--1) }
     padding: 0.5rem 2rem;
     background-color: var(--clr-dark);
     border-radius: var(--br);
-    width: min(25rem, 100%);
+    width: min(23rem, 100%);
     margin: 0 auto;
 }
 .new-style {
