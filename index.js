@@ -39,7 +39,7 @@ function passwordGenerator() {
     length = parseInt(passLength.value)
 
 
-    if (4 <= length && length <= 20) {
+    if (8 <= length && length <= 20) {
         for (let i = 0; i < length; i++) {
             passwordChar1.push(alphabet[randomNumber()])
             passwordChar2.push(alphabet[randomNumber()])
@@ -68,7 +68,7 @@ function passwordGenerator() {
 
     } else {
         passNotify.style.color = "red"
-        passNotify.textContent = "Please choose a value between 4 and 20"
+        passNotify.textContent = "Please choose a value between 8 and 20"
     }
 }
 
