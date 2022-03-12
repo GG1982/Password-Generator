@@ -15,14 +15,22 @@
     <p class="warn">This is for strictly for demo purposes. Please do NOT use this as your password.</p>
 
     <main class="container"> 
+
     
     
         <section class="password-generator">
 
             <div class="heading flex-col">
-                <h1 class="title">Generate a <span>Random Password</span></h1>
-                <h2 class="sub-title">Never use an insecure password again.</h2>
+                <div>
+                    <h1 class="title">Generate a <span>Random Password</span></h1>
+                    <h2 class="sub-title">Never use an insecure password again.</h2>
+                </div>
+
+                <button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <i class="bi bi-brightness-high"></i>
+                </button>
             </div>
+
 
             <div class="hero">
 
@@ -37,29 +45,29 @@
 
                 <div class="password">
                     <p id="pass1">...</p>
-                    <button id="btn-pass1" class="clip-btn" onclick="copyText()">
-                        <i id="icon-1" class="bi bi-clipboard"></i>
+                    <button id="btn-pass1" class="clip-btn" onclick="copyText()" aria-label="Copy Password">
+                        <i id="icon-1" class="copy bi-clipboard"></i>
                     </button>
                 </div>
 
                 <div class="password">
                     <p id="pass2">...</p>
-                    <button id="btn-pass2" class="clip-btn" onclick="copyText()">
-                        <i id="icon-2"class="bi bi-clipboard"></i>
+                    <button id="btn-pass2" class="clip-btn" onclick="copyText()" aria-label="Copy Password">
+                        <i id="icon-2" class="copy bi-clipboard"></i>
                     </button>
                 </div>
 
                 <div class="password">
                     <p id="pass3">...</p>
-                    <button id="btn-pass3" class="clip-btn" onclick="copyText()">
-                        <i id="icon-3" class="bi bi-clipboard"></i>
+                    <button id="btn-pass3" class="clip-btn" onclick="copyText()" aria-label="Copy Password">
+                        <i id="icon-3" class="copy bi-clipboard"></i>
                     </button>
                 </div>
 
                 <div class="password">
                     <p id="pass4">...</p>
-                    <button id="btn-pass4" class="clip-btn" onclick="copyText()">
-                        <i id="icon-4" class="bi bi-clipboard"></i>
+                    <button id="btn-pass4" class="clip-btn" onclick="copyText()" aria-label="Copy Password">
+                        <i id="icon-4" class="copy bi-clipboard"></i>
                     </button>
                 </div>
 

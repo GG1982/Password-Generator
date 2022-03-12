@@ -3,10 +3,11 @@ let passEl2 = document.getElementById("pass2")
 let passEl3 = document.getElementById("pass3")
 let passEl4 = document.getElementById("pass4")
 
-
 let passLength = document.getElementById("pass-length")
-
 let passNotify = document.getElementById("pass-notify")
+
+// Root variable
+let root = document.querySelector(":root");
 
 function init() {
     // Allows us to call functions only after passwordGenerator() has been called
@@ -63,7 +64,6 @@ function passwordGenerator() {
         passEl4.textContent = password4
         passEl4.classList.add("new-style")
 
-        passNotify.style.color = "white"
         passNotify.textContent = "Select Password Length"
 
     } else {
@@ -83,77 +83,122 @@ let btnPassword2 = document.getElementById("btn-pass2")
 let btnPassword3 = document.getElementById("btn-pass3")
 let btnPassword4 = document.getElementById("btn-pass4")
 
-window.getComputedStyle(icon1, '::after')
 
-// Root variable
-let root = document.querySelector(":root");
+
 
 
 function copyText() {
 
     if (init.called) {
-    btnPassword1.addEventListener('click', () => {
-        // Copy passowrd to clipboard
-        navigator.clipboard.writeText(passEl1.textContent)
+        btnPassword1.addEventListener('click', () => {
+            // Copy passowrd to clipboard
+            navigator.clipboard.writeText(passEl1.textContent)
 
-        // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
-        root.style.setProperty("--copy-text", '"Copied!"')
+            // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
+            root.style.setProperty("--copy-text", '"Copied!"')
 
-        // Confirm copied with icon tick
-        icon1.classList.remove("bi-clipboard")
-        icon1.classList.add("bi-check2-square")
+            // Confirm copied with icon tick
+            icon1.classList.remove("bi-clipboard")
+            icon1.classList.add("bi-check2-square")
 
-        // Toggle back to copy icon/text after 500ms
-        setTimeout(function() {
-            icon1.classList.add("bi-clipboard")
-            icon1.classList.remove("bi-check2-square")
-            root.style.setProperty("--copy-text", '"Copy"')
-        }, 500)
-    })
-
-
-    btnPassword2.addEventListener('click', () => {
-        navigator.clipboard.writeText(passEl2.textContent)
-        root.style.setProperty("--copy-text", '"Copied!"')
-
-        icon2.classList.remove("bi-clipboard")
-        icon2.classList.add("bi-check2-square")
-
-        setTimeout(function () {
-            icon2.classList.add("bi-clipboard")
-            icon2.classList.remove("bi-check2-square")
-            root.style.setProperty("--copy-text", '"Copy"')
-        }, 500)
-    })
+            // Toggle back to copy icon/text after 500ms
+            setTimeout(function () {
+                icon1.classList.add("bi-clipboard")
+                icon1.classList.remove("bi-check2-square")
+                root.style.setProperty("--copy-text", '"Copy"')
+            }, 1000)
+        })
 
 
-    btnPassword3.addEventListener('click', () => {
-        navigator.clipboard.writeText(passEl3.textContent)
-        root.style.setProperty("--copy-text", '"Copied!"')
+        btnPassword2.addEventListener('click', () => {
+            navigator.clipboard.writeText(passEl2.textContent)
+            root.style.setProperty("--copy-text", '"Copied!"')
 
-        icon3.classList.remove("bi-clipboard")
-        icon3.classList.add("bi-check2-square")
+            icon2.classList.remove("bi-clipboard")
+            icon2.classList.add("bi-check2-square")
 
-        setTimeout(function () {
-            icon3.classList.add("bi-clipboard")
-            icon3.classList.remove("bi-check2-square")
-            root.style.setProperty("--copy-text", '"Copy"')
-        }, 500)
-    })
+            setTimeout(function () {
+                icon2.classList.add("bi-clipboard")
+                icon2.classList.remove("bi-check2-square")
+                root.style.setProperty("--copy-text", '"Copy"')
+            }, 1000)
+        })
 
 
-    btnPassword4.addEventListener('click', () => {
-        navigator.clipboard.writeText(passEl4.textContent)
-        root.style.setProperty("--copy-text", '"Copied!"')
+        btnPassword3.addEventListener('click', () => {
+            navigator.clipboard.writeText(passEl3.textContent)
+            root.style.setProperty("--copy-text", '"Copied!"')
 
-        icon4.classList.remove("bi-clipboard")
-        icon4.classList.add("bi-check2-square")
+            icon3.classList.remove("bi-clipboard")
+            icon3.classList.add("bi-check2-square")
 
-        setTimeout(function () {
-            icon4.classList.add("bi-clipboard")
-            icon4.classList.remove("bi-check2-square")
-            root.style.setProperty("--copy-text", '"Copy"')
-        }, 500)
-    }) 
-    } 
+            setTimeout(function () {
+                icon3.classList.add("bi-clipboard")
+                icon3.classList.remove("bi-check2-square")
+                root.style.setProperty("--copy-text", '"Copy"')
+            }, 1000)
+        })
+
+
+        btnPassword4.addEventListener('click', () => {
+            navigator.clipboard.writeText(passEl4.textContent)
+            root.style.setProperty("--copy-text", '"Copied!"')
+
+            icon4.classList.remove("bi-clipboard")
+            icon4.classList.add("bi-check2-square")
+
+            setTimeout(function () {
+                icon4.classList.add("bi-clipboard")
+                icon4.classList.remove("bi-check2-square")
+                root.style.setProperty("--copy-text", '"Copy"')
+            }, 1000)
+        })
+    }
 }
+
+
+let sun = document.querySelector('.bi-brightness-high')
+
+
+// check for saved 'darkMode' in localStorage
+let darkMode = localStorage.getItem('darkMode'); 
+let darkModeToggle = document.querySelector('#dark-mode-toggle')
+
+function enableDarkMode() {
+    // 1. Add the class to the body
+    document.body.classList.add('dark-mode')
+    sun.classList.remove("bi-brightness-high")
+    sun.classList.add("bi-moon-fill")
+    
+
+    // 2. Update darkMode in localStorage
+    localStorage.setItem('darkMode', 'enabled');
+}
+
+function disableDarkMode() {
+    // 1. Add the class to the body
+    document.body.classList.remove('dark-mode')
+    sun.classList.add("bi-brightness-high")
+    sun.classList.remove("bi-moon-fill")
+
+    // 2. Update darkMode in localStorage
+    localStorage.setItem('darkMode', null);
+}
+
+if (darkMode === 'enabled') {
+    enableDarkMode();
+}
+
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => {
+    // get their darkMode setting
+    darkMode = localStorage.getItem('darkMode');
+
+    // if it not current enabled, enable it
+    if (darkMode !== 'enabled') {
+        enableDarkMode();
+        // if it has been enabled, turn it off  
+    } else {
+        disableDarkMode();
+    }
+});

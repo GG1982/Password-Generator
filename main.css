@@ -8,9 +8,10 @@
     --step-4: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
     --step-5: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
 
-    --clr-dark: #1C1C1C;
-    --clr-dark-100: #1F2937;
-    --clr-light: #D5D4D8;
+    --clr-background: #1C1C1C;
+    --clr-foreground: #1F2937;
+
+    --clr-light: #D5D4D8;    
     --clr-accent: #10B981;
 
     color: var(--clr-light);
@@ -18,6 +19,16 @@
     --br: 6px;
 
     --copy-text: "Copy"
+}
+
+.dark-mode {
+    --clr-background: #E0F2FE;
+    --clr-foreground: #7DD3FC;
+
+    --clr-light: #1c1c1c;
+    --clr-accent: #881337;
+
+    color: var(--clr-light);
 }
 
 .warn {
@@ -44,19 +55,26 @@ input {
     min-height: 60px;
     text-align: center;
     color: var(--clr-accent);
-    background-color: var(--clr-dark);
+    background-color: var(--clr-background);
 
 }
 
-h2  { font-size: var(--step-0) }
-p   { font-size: var(--step--1) }
+h2 { 
+    font-size: var(--step-0);
+    color: var(--clr-light);
+}
+
+p  { 
+    font-size: var(--step--1);
+    color: var(--clr-light);
+ }
 
 .btn {
     border: none;
     padding: 1rem 3rem;
     border-radius: var(--br);
-    color: var(--clr-light);
-    background-color: var(--clr-accent);
+    /* color: var(--clr-dark); */
+    background-color: #10B981;
     text-transform: capitalize;
     font-size: var(--step--1);
     cursor: pointer;
@@ -70,7 +88,6 @@ p   { font-size: var(--step--1) }
 
 .flex-col {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
 }
 
@@ -84,7 +101,7 @@ p   { font-size: var(--step--1) }
 .container {
     min-height: 100vh;
     width: 100%;
-    background-color: var(--clr-dark);
+    background-color: var(--clr-background);
 
     display: grid;
     place-items: center;
@@ -94,7 +111,7 @@ p   { font-size: var(--step--1) }
     display: grid;
     grid-template-columns: 1fr;
     gap: 6rem;
-    background-color: var(--clr-dark-100);
+    background-color: var(--clr-foreground);
     width: min(100% - 2rem, 50rem, 75%);
     padding: 2rem 3rem;
     border-radius: 10px;
@@ -103,9 +120,23 @@ p   { font-size: var(--step--1) }
 }
 
 
+.dark-mode-toggle {
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    font-size: 1.4rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    color: var(--clr-light);
+}
+
+
 
 .title {
     font-size: var(--step-2);
+    
 }
 .title span {
     display: block;
@@ -132,14 +163,11 @@ p   { font-size: var(--step--1) }
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem
-}
-
-.password-length {
+    gap: 0.5rem;
     text-transform: capitalize;
     text-align: center;
-    /* margin: 0 auto; */
     width: 80%;
+    color: var(--clr-accent);
 }
 
 
@@ -152,8 +180,9 @@ p   { font-size: var(--step--1) }
 .password {
     display: flex;
     align-items: center;
+    color: var(--clr-accent);
     padding: 0.5rem 2rem;
-    background-color: var(--clr-dark);
+    background-color: var(--clr-background);
     border-radius: var(--br);
     width: min(23rem, 100%);
     margin: 0 auto;
@@ -165,20 +194,20 @@ p   { font-size: var(--step--1) }
 .password p {
     margin-right: auto;
 }
-.bi {
+.copy {
     cursor: pointer;
-    color: var(--clr-light);
+    /* color: var(--clr-accent); */
     position: relative;
 }
 
-.bi::after {
+.copy::after {
     content: var(--copy-text);
     font-size: var(--step--2);
     font-style: normal;
 
-    background-color: #D5D4D8;
+    background-color: var(--clr-light);
     border-radius: 6px;
-    color: #1F2937;
+    color: var(--clr-background); 
     padding: 0.2rem 1.5rem;
 
     top: -2.5rem;
@@ -193,11 +222,9 @@ p   { font-size: var(--step--1) }
 
 @media (hover: hover) {
 
-    .bi:hover::after {
+    .copy:hover::after {
         display: block;
     }
-
-
 }
 
 
@@ -209,10 +236,10 @@ p   { font-size: var(--step--1) }
     }
 
     input {
-        background-color: var(--clr-dark-100);
+        background-color: var(--clr-foreground);
     }
 
     .password {
-        background-color: var(--clr-dark-100);
+        background-color: var(--clr-foreground);
     }
 }
