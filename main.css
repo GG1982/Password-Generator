@@ -91,15 +91,13 @@ p  {
     color: var(--clr-light);
 }
 
-.flex-col {
+.grid-col {
     display: grid;
-    /* gap: 2rem; */
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 1fr 1fr auto;
 }
 
 .flex-row {
     display: flex;
-    /* gap: 2rem; */
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
