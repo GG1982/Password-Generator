@@ -92,13 +92,14 @@ p  {
 }
 
 .flex-col {
-    display: flex;
-    gap: 2rem;
+    display: grid;
+    /* gap: 2rem; */
+    grid-template-columns: 10% 80% 10%;
 }
 
 .flex-row {
     display: flex;
-    gap: 2rem;
+    /* gap: 2rem; */
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
@@ -124,6 +125,9 @@ p  {
     margin: 1rem auto;
 }
 
+.heading {
+    grid-column: span 2;
+}
 
 .dark-mode-toggle {
     width: fit-content;
