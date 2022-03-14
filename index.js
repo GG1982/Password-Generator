@@ -6,6 +6,9 @@ let passEl4 = document.getElementById("pass4")
 let passLength = document.getElementById("pass-length")
 let passNotify = document.getElementById("pass-notify")
 
+theClipboard = navigator.clipboard;
+
+
 // Root variable
 let root = document.querySelector(":root");
 
@@ -29,6 +32,8 @@ passLength.addEventListener('keyup', function (e) {
 })
 
 function passwordGenerator() {
+
+    let clipboard = navigator.clipboard.writeText("")
     // Call init() so text can only be copied once password generated
     init()
 
@@ -86,75 +91,90 @@ let btnPassword4 = document.getElementById("btn-pass4")
 
 
 
-
-function copyText() {
-
+function copyText1() {
     if (init.called) {
-        btnPassword1.addEventListener('click', () => {
-            // Copy passowrd to clipboard
-            navigator.clipboard.writeText(passEl1.textContent)
+        // Copy passowrd to clipboard
+        navigator.clipboard.writeText(passEl1.textContent)
 
-            // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
-            root.style.setProperty("--copy-text", '"Copied!"')
+        // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
+        root.style.setProperty("--copy-text", '"Copied!"')
 
-            // Confirm copied with icon tick
-            icon1.classList.remove("bi-clipboard")
-            icon1.classList.add("bi-check2-square")
+        // Confirm copied with icon tick
+        icon1.classList.remove("bi-clipboard")
+        icon1.classList.add("bi-check2-square")
 
-            // Toggle back to copy icon/text after 500ms
-            setTimeout(function () {
-                icon1.classList.add("bi-clipboard")
-                icon1.classList.remove("bi-check2-square")
-                root.style.setProperty("--copy-text", '"Copy"')
-            }, 1000)
-        })
-
-
-        btnPassword2.addEventListener('click', () => {
-            navigator.clipboard.writeText(passEl2.textContent)
-            root.style.setProperty("--copy-text", '"Copied!"')
-
-            icon2.classList.remove("bi-clipboard")
-            icon2.classList.add("bi-check2-square")
-
-            setTimeout(function () {
-                icon2.classList.add("bi-clipboard")
-                icon2.classList.remove("bi-check2-square")
-                root.style.setProperty("--copy-text", '"Copy"')
-            }, 1000)
-        })
-
-
-        btnPassword3.addEventListener('click', () => {
-            navigator.clipboard.writeText(passEl3.textContent)
-            root.style.setProperty("--copy-text", '"Copied!"')
-
-            icon3.classList.remove("bi-clipboard")
-            icon3.classList.add("bi-check2-square")
-
-            setTimeout(function () {
-                icon3.classList.add("bi-clipboard")
-                icon3.classList.remove("bi-check2-square")
-                root.style.setProperty("--copy-text", '"Copy"')
-            }, 1000)
-        })
-
-
-        btnPassword4.addEventListener('click', () => {
-            navigator.clipboard.writeText(passEl4.textContent)
-            root.style.setProperty("--copy-text", '"Copied!"')
-
-            icon4.classList.remove("bi-clipboard")
-            icon4.classList.add("bi-check2-square")
-
-            setTimeout(function () {
-                icon4.classList.add("bi-clipboard")
-                icon4.classList.remove("bi-check2-square")
-                root.style.setProperty("--copy-text", '"Copy"')
-            }, 1000)
-        })
+        // Toggle back to copy icon/text after 1000ms
+        setTimeout(function () {
+            icon1.classList.add("bi-clipboard")
+            icon1.classList.remove("bi-check2-square")
+            root.style.setProperty("--copy-text", '"Copy"')
+        }, 1000)
     }
 }
+
+function copyText2() {
+    if (init.called) {
+        // Copy passowrd to clipboard
+        navigator.clipboard.writeText(passEl2.textContent)
+
+        // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
+        root.style.setProperty("--copy-text", '"Copied!"')
+
+        // Confirm copied with icon tick
+        icon2.classList.remove("bi-clipboard")
+        icon2.classList.add("bi-check2-square")
+
+        // Toggle back to copy icon/text after 1000ms
+        setTimeout(function () {
+            icon2.classList.add("bi-clipboard")
+            icon2.classList.remove("bi-check2-square")
+            root.style.setProperty("--copy-text", '"Copy"')
+        }, 1000)
+    }
+}
+
+function copyText3() {
+    if (init.called) {
+        // Copy passowrd to clipboard
+        navigator.clipboard.writeText(passEl3.textContent)
+
+        // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
+        root.style.setProperty("--copy-text", '"Copied!"')
+
+        // Confirm copied with icon tick
+        icon3.classList.remove("bi-clipboard")
+        icon3.classList.add("bi-check2-square")
+
+        // Toggle back to copy icon/text after 1000ms
+        setTimeout(function () {
+            icon3.classList.add("bi-clipboard")
+            icon3.classList.remove("bi-check2-square")
+            root.style.setProperty("--copy-text", '"Copy"')
+        }, 1000)
+    }
+}
+
+function copyText4() {
+    if (init.called) {
+        // Copy passowrd to clipboard
+        navigator.clipboard.writeText(passEl4.textContent)
+
+        // Change root var --copy-text: "Copy" to --copy-text: "Copied!"
+        root.style.setProperty("--copy-text", '"Copied!"')
+
+        // Confirm copied with icon tick
+        icon4.classList.remove("bi-clipboard")
+        icon4.classList.add("bi-check2-square")
+
+        // Toggle back to copy icon/text after 1000ms
+        setTimeout(function () {
+            icon4.classList.add("bi-clipboard")
+            icon4.classList.remove("bi-check2-square")
+            root.style.setProperty("--copy-text", '"Copy"')
+        }, 1000)
+    }
+}
+
 
 
 let sun = document.querySelector('.bi-brightness-high')
