@@ -32,9 +32,6 @@ passLength.addEventListener('keyup', function (e) {
 })
 
 function passwordGenerator() {
-
-    let clipboard = navigator.clipboard.writeText("")
-    // Call init() so text can only be copied once password generated
     init()
 
     let passwordChar1 = []
