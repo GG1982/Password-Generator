@@ -43,6 +43,11 @@ function passwordGenerator() {
 
 
     if (8 <= length && length <= 20) {
+
+        // change text/color nack to original state if inputed wrong number
+        passNotify.style.color = "var(--clr-light)"
+        passNotify.textContent = "Select Password Length"
+
         for (let i = 0; i < length; i++) {
             passwordChar1.push(alphabet[randomNumber()])
             passwordChar2.push(alphabet[randomNumber()])
